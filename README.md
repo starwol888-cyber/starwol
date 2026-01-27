@@ -52,6 +52,7 @@
         .product img {
             width: 100%;
             max-width: 200px;
+            height: auto;
         }
 
         footer {
@@ -75,6 +76,7 @@
             padding: 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
+            font-size: 1em;
         }
 
         form button {
@@ -84,6 +86,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 1em;
         }
 
         form button:hover {
