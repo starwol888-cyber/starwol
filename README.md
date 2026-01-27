@@ -6,14 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ===== COULEURS PRINCIPALES ===== */
+/* ===== PALETTE DE COULEURS (inspirée du style visuel) ===== */
 :root {
-    --vert-canard: #0f4c5c;
-    --bleu-clair: #38b2ac;
-    --sable: #f4e7c5;
-    --gris-fonce: #2a2a2a;
+    --bleu-principal: #3B82F6;
+    --sable-clair: #F8F4E3;
+    --vert-kaki: #6B8E23;
+    --noir-profond: #1F1F1F;
+    --orange-accent: #F59E0B;
+    --gris-fonce: #333333;
     --blanc: #ffffff;
-    --ombre: rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -24,22 +25,23 @@
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: var(--sable);
+    background-color: var(--sable-clair);
     color: var(--gris-fonce);
 }
 
+/* ===== HEADER ===== */
 header {
-    background: var(--vert-canard);
+    background: var(--bleu-principal);
     color: var(--blanc);
     text-align: center;
     padding: 80px 20px;
 }
 
 header h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     letter-spacing: 4px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 header p {
@@ -49,7 +51,7 @@ header p {
 
 /* ===== NAVIGATION ===== */
 nav {
-    background: var(--bleu-clair);
+    background: var(--noir-profond);
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -61,14 +63,14 @@ nav a {
     color: var(--blanc);
     text-decoration: none;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: var(--gris-fonce);
+    color: var(--orange-accent);
 }
 
-/* ===== GALERIE + SHOP ===== */
+/* ===== SECTIONS ===== */
 section {
     padding: 60px 20px;
     max-width: 1200px;
@@ -77,27 +79,28 @@ section {
 
 h2 {
     text-align: center;
-    margin-bottom: 30px;
-    color: var(--vert-canard);
+    margin-bottom: 25px;
+    color: var(--vert-kaki);
     font-size: 2.4rem;
 }
 
+/* ===== GALERIE & BOUTIQUE ===== */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
 .card {
     background: var(--blanc);
     border-radius: 15px;
-    box-shadow: 0 0 15px var(--ombre);
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
     overflow: hidden;
     transition: transform 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .card img {
@@ -110,9 +113,9 @@ h2 {
 }
 
 .card-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    color: var(--vert-canard);
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+    color: var(--bleu-principal);
 }
 
 .card-content p {
@@ -124,39 +127,31 @@ h2 {
     font-size: 1.2rem;
     font-weight: bold;
     margin-top: 10px;
-    color: var(--bleu-clair);
+    color: var(--orange-accent);
 }
 
-/* ===== AUTRES SECTIONS ===== */
-
-section#about p,
-section#contact p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-top: 10px;
-}
-
+/* ===== FORMULAIRE ===== */
 form {
     background: var(--blanc);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 0 20px var(--ombre);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
 }
 
 input, textarea {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 10px;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid var(--gris-fonce);
 }
 
 button {
-    margin-top: 15px;
+    margin-top: 18px;
     width: 100%;
     padding: 14px;
     border: none;
-    background: var(--vert-canard);
+    background: var(--bleu-principal);
     color: var(--blanc);
     font-weight: bold;
     cursor: pointer;
@@ -165,22 +160,15 @@ button {
 }
 
 button:hover {
-    background: var(--bleu-clair);
+    background: var(--orange-accent);
 }
 
 /* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 25px;
-    background: var(--gris-fonce);
+    background: var(--noir-profond);
     color: var(--blanc);
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
 }
 </style>
 </head>
@@ -189,52 +177,53 @@ footer {
 
 <header>
     <h1>Starwol</h1>
-    <p>L’art de la pierre de tuffeau — Élégance & patrimoine</p>
+    <p>L’art de la taille de pierre de tuffeau & patrimoine vivant</p>
 </header>
 
 <nav>
     <a href="#gallery">Galerie & Boutique</a>
-    <a href="#about">À propos</a>
+    <a href="#about">Biographie</a>
     <a href="#contact">Contact</a>
     <a href="#follow">Suivi Commande</a>
 </nav>
 
 <section id="gallery">
-    <h2>Notre Galerie & Boutique</h2>
+    <h2>Galerie & Boutique</h2>
     <div class="gallery">
         <div class="card">
-            <img src="piece1.jpg" alt="Pierre sculptée 1">
+            <img src="tuffeau1.jpg" alt="Pièce Sculptée A">
             <div class="card-content">
-                <h3>Pierre Sculptée A</h3>
-                <p>Œuvre façonnée à la main</p>
-                <div class="price">€120</div>
+                <h3>Pièce Sculptée A</h3>
+                <p>Pierre de tuffeau façonnée à la main</p>
+                <div class="price">€150</div>
             </div>
         </div>
         <div class="card">
-            <img src="piece2.jpg" alt="Pierre sculptée 2">
+            <img src="tuffeau2.jpg" alt="Pièce Sculptée B">
             <div class="card-content">
-                <h3>Pierre Sculptée B</h3>
-                <p>Design architectural unique</p>
-                <div class="price">€220</div>
+                <h3>Pièce Sculptée B</h3>
+                <p>Ouvrage décoratif pour architecture</p>
+                <div class="price">€280</div>
             </div>
         </div>
         <div class="card">
-            <img src="piece3.jpg" alt="Pierre sculptée 3">
+            <img src="tuffeau3.jpg" alt="Pièce Sculptée C">
             <div class="card-content">
-                <h3>Pierre Sculptée C</h3>
-                <p>Forme naturelle authentique</p>
-                <div class="price">€180</div>
+                <h3>Pièce Sculptée C</h3>
+                <p>Design naturel et authentique</p>
+                <div class="price">€200</div>
             </div>
         </div>
     </div>
 </section>
 
 <section id="about">
-    <h2>À propos de Starwol</h2>
+    <h2>Biographie de l'entreprise</h2>
     <p>
-        Starwol est une entreprise artisanale spécialisée dans la taille et la sculpture de pierre de tuffeau. 
-        Inspirés par la richesse du patrimoine architectural et la lumière unique de cette pierre, nous créons des pièces d’exception,
-        alliant tradition et design moderne. Chaque création raconte une histoire, façonnée avec passion et précision.
+        Starwol est une entreprise artisanale spécialisée dans la taille de pierre de tuffeau, un
+        matériau noble & emblématique du patrimoine. Fondée par des passionnés, notre mission est
+        de créer des pièces uniques qui racontent une histoire — entre tradition et modernité,
+        chaque création incarne la beauté brute du tuffeau et le savoir-faire français.
     </p>
 </section>
 
@@ -248,20 +237,17 @@ footer {
         <input type="email" id="email" required>
 
         <label for="message">Votre message</label>
-        <textarea id="message" rows="5" required></textarea>
+        <textarea id="message" rows="4" required></textarea>
 
         <button type="submit">Envoyer</button>
     </form>
 </section>
 
 <section id="follow">
-    <h2>Order Tracking (Suivi de Commande)</h2>
-    <p>
-        Pour suivre votre commande, entrez votre numéro de suivi ci-dessous.
-    </p>
+    <h2>Order Tracking (Suivi de commande)</h2>
+    <p>Enter your order number to track it:</p>
     <form>
-        <label for="ordernum">Order Number</label>
-        <input type="text" id="ordernum" required>
+        <input type="text" placeholder="Order Number" required>
         <button type="submit">Track Order</button>
     </form>
 </section>
