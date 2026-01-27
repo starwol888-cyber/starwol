@@ -177,7 +177,7 @@ footer {
 
 <header>
     <h1>Starwol</h1>
-    <p>L’art de la taille de pierre de tuffeau & patrimoine vivant</p>
+    <p>L’art de redonner vie avec la sculpture de pierre de tuffeau </p>
 </header>
 
 <nav>
@@ -220,10 +220,9 @@ footer {
 <section id="about">
     <h2>Biographie de l'entreprise</h2>
     <p>
-        Starwol est une entreprise artisanale spécialisée dans la taille de pierre de tuffeau, un
-        matériau noble & emblématique du patrimoine. Fondée par des passionnés, notre mission est
-        de créer des pièces uniques qui racontent une histoire — entre tradition et modernité,
-        chaque création incarne la beauté brute du tuffeau et le savoir-faire français.
+        Starwol est une entreprise artisanale spécialisée dans la sculpture de pierre de tuffeau, un
+        matériau noble & emblématique du patrimoine. Ma mission redonner vie à cette pierre en créant des pièces uniques qui racontent une histoire — entre tradition et modernité,
+        chaque création incarne l'élégance, la finesse et beauté brute de cette pierre aujourd'hui laisse trop souvent de côté.
     </p>
 </section>
 
@@ -240,15 +239,6 @@ footer {
         <textarea id="message" rows="4" required></textarea>
 
         <button type="submit">Envoyer</button>
-    </form>
-</section>
-
-<section id="follow">
-    <h2>Order Tracking (Suivi de commande)</h2>
-    <p>Enter your order number to track it:</p>
-    <form>
-        <input type="text" placeholder="Order Number" required>
-        <button type="submit">Track Order</button>
     </form>
 </section>
 
