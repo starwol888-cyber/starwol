@@ -1,168 +1,237 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starwol - Sculptures en Pierre de Tuffeau</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+<meta charset="UTF-8">
+<title>Starwol – Site Officiel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
+<style>
+:root {
+    --dark: #0b2d33;
+    --primary: #0f4c5c;
+    --accent: #38b2ac;
+    --light: #e6fffa;
+}
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        nav ul li {
-            display: inline;
-            margin-right: 15px;
-        }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    color: var(--light);
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(0,0,0,0.35);
+}
 
-        section {
-            padding: 20px;
-            margin: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
 
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-            text-align: center;
-        }
+/* ===== SECTIONS ===== */
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        .product img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-        }
+/* Animation scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
 
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-        }
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: var(--accent);
+}
 
-        form label {
-            margin: 5px 0;
-        }
+/* ===== GALERIE ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
 
-        form input, form textarea {
-            margin-bottom: 10px;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 1em;
-        }
+.gallery img {
+    width: 100%;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
 
-        form button {
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-        }
+.gallery img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px rgba(56,178,172,0.7);
+}
 
-        form button:hover {
-            background-color: #555;
-        }
-    </style>
+/* ===== LIGHTBOX ===== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+/* ===== FORMULAIRE ===== */
+form {
+    background: rgba(0,0,0,0.4);
+    padding: 35px;
+    border-radius: 25px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+}
+
+button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(45deg, var(--accent), #2dd4bf);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(45,212,191,0.8);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.6);
+    font-size: 0.9rem;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Bienvenue chez Starwol</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#products">Produits</a></li>
-                <li><a href="#gallery">Galerie</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="about">
-        <h2>À propos de nous</h2>
-        <p>Starwol est dédié à la création de sculptures uniques en pierre de tuffeau, alliant tradition et innovation.</p>
-    </section>
+<header class="reveal">
+    <h1>Starwol</h1>
+    <p>Là où la créativité rencontre la puissance</p>
+</header>
 
-    <section id="products">
-        <h2>Nos Sculptures</h2>
-        <div class="product">
-            <img src="images/sculpture1.jpg" alt="Sculpture 1">
-            <h3>Sculpture 1</h3>
-            <p>Prix : 200€</p>
-            <button>Ajouter au panier</button>
-        </div>
-        <div class="product">
-            <img src="images/sculpture2.jpg" alt="Sculpture 2">
-            <h3>Sculpture 2</h3>
-            <p>Prix : 250€</p>
-            <button>Ajouter au panier</button>
-        </div>
-        <!-- Ajouter plus de sculptures ici -->
-    </section>
+<main>
 
-    <section id="gallery">
-        <h2>Galerie</h2>
-        <p>Découvrez notre travail à travers ces photos et vidéos.</p>
-        <img src="images/galerie1.jpg" alt="Galerie 1" style="width: 100%; max-width: 400px;">
-        <img src="images/galerie2.jpg" alt="Galerie 2" style="width: 100%; max-width: 400px;">
-        <!-- Ajouter des vidéos ici -->
-    </section>
+<section id="galerie" class="reveal">
+    <h2>Galerie</h2>
+    <div class="gallery">
+        <img src="image1.jpg" alt="Galerie 1">
+        <img src="image2.jpg" alt="Galerie 2">
+        <img src="image3.jpg" alt="Galerie 3">
+    </div>
+</section>
 
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <form>
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
+<section id="contact" class="reveal">
+    <h2>Contactez-nous</h2>
+    <form action="#" method="post">
+        <label for="name">Nom</label>
+        <input type="text" id="name" required>
 
-    <footer>
-        <p>© 2026 Starwol. Tous droits réservés.</p>
-    </footer>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const buttons = document.querySelectorAll('.product button');
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Produit ajouté au panier !');
-                });
-            });
-        });
-    </script>
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit">Envoyer 🚀</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Starwol. Tous droits réservés.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <img src="" alt="Image plein écran">
+</div>
+
+<script>
+/* ===== SCROLL ANIMATION ===== */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* ===== GALERIE PLEIN ÉCRAN ===== */
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = lightbox.querySelector("img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("active");
+    });
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+});
+</script>
+
 </body>
 </html>
