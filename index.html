@@ -33,24 +33,6 @@
             color: var(--beige-pierre);
         }
 
-        .hero {
-            height: 60vh;
-            background: url("image-outils-de-taille-de-pierre.jpg") center / cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 2px solid var(--dore-patine);
-        }
-
-        .hero h1 {
-            background: rgba(0,0,0,0.5);
-            padding: 1.5rem 3rem;
-            color: var(--beige-pierre);
-            letter-spacing: 3px;
-            font-weight: 300;
-            text-align: center;
-        }
-
         header {
             background: rgba(0, 0, 0, 0.4);
             padding: 2rem;
@@ -142,7 +124,7 @@
             border-top: 1px solid var(--dore-patine);
         }
 
-        /* ===== LIGHTBOX AJOUTÉ ===== */
+        /* ===== LIGHTBOX ===== */
         .lightbox {
             display: none;
             position: fixed;
@@ -202,12 +184,14 @@
 
     <div class="vente">
         <div class="carte">
-            <img src="vente1.jpg" onclick="openGallery(['vente1.jpg','vente1b.jpg','vente1c.jpg'])">
+            <img src="vente1.jpg"
+                 onclick="openGallery(['vente1.jpg','vente1b.jpg','vente1c.jpg'])">
             <p>Pièce unique en Tuffeau</p>
         </div>
 
         <div class="carte">
-            <img src="vente2.jpg" onclick="openGallery(['vente2.jpg','vente2b.jpg','vente2c.jpg'])">
+            <img src="vente2.jpg"
+                 onclick="openGallery(['vente2.jpg','vente2b.jpg','vente2c.jpg'])">
             <p>Création artisanale</p>
         </div>
     </div>
@@ -269,10 +253,11 @@ function closeGallery() {
 }
 
 function changePhoto(direction) {
+    if (photos.length <= 1) return;
     index = (index + direction + photos.length) % photos.length;
     document.getElementById("lightbox-img").src = photos[index];
 }
 </script>
 
 </body>
-            </html>
+    </html>
