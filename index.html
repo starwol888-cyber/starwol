@@ -33,7 +33,6 @@
             color: var(--beige-pierre);
         }
 
-        /* ===== HERO ===== */
         .hero {
             height: 60vh;
             background: url("image-outils-de-taille-de-pierre.jpg") center / cover no-repeat;
@@ -52,7 +51,6 @@
             text-align: center;
         }
 
-        /* ===== HEADER ===== */
         header {
             background: rgba(0, 0, 0, 0.4);
             padding: 2rem;
@@ -66,7 +64,6 @@
             font-weight: 300;
         }
 
-        /* ===== SECTIONS ===== */
         main,
         .section {
             max-width: 1000px;
@@ -93,7 +90,6 @@
             font-weight: 600;
         }
 
-        /* ===== VENTE & GALERIE ===== */
         .vente,
         .galerie {
             display: grid;
@@ -114,9 +110,9 @@
             height: 180px;
             object-fit: cover;
             margin-bottom: 1rem;
+            cursor: pointer;
         }
 
-        /* ===== FORMULAIRE ===== */
         form {
             display: grid;
             gap: 1rem;
@@ -137,7 +133,6 @@
             cursor: pointer;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             padding: 2rem;
@@ -146,96 +141,138 @@
             background: rgba(0, 0, 0, 0.4);
             border-top: 1px solid var(--dore-patine);
         }
+
+        /* ===== LIGHTBOX AJOUTÉ ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 85%;
+            max-height: 85%;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .lightbox .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .lightbox .prev { left: 5%; }
+        .lightbox .next { right: 5%; }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Starwol – Artisan Sculpteur</h1>
-    </header>
+<header>
+    <h1>Starwol – Artisan Sculpteur</h1>
+</header>
 
-    <!-- PRÉSENTATION -->
-    <main>
-        <h2>Un savoir-faire intemporel</h2>
+<main>
+    <h2>Un savoir-faire intemporel</h2>
+    <p>La sculpture sur pierre est un art où la matière dialogue avec la main.</p>
+    <p><strong>Starwol</strong> est une entreprise artisanale spécialisée dans la sculpture de pierre de <span class="accent">Tuffeau</span>.</p>
+    <p>Ma mission: redonner vie à ces pierres en créant des pièces uniques.</p>
+    <p>Je récupère donc des chutes de pierre de taille que je transforme.</p>
+</main>
 
-        <p>
-            La sculpture sur pierre est un art où la matière dialogue avec la main.
-            Chaque outil, chaque frappe révèle une histoire gravée dans la pierre.
-        </p>
+<section class="section">
+    <h2>Pièces disponibles à la vente</h2>
 
-        <p>
-            <strong>Starwol</strong> est une entreprise artisanale spécialisée dans la sculpture
-            de pierre de <span class="accent">Tuffeau</span>, matériau NOBLE et EMBLÉMATIQUE
-            du patrimoine.
-        </p>
-
-        <p>
-            Ma mission: redonner vie à ces pierres en créant des pièces uniques.
-            Entre tradition et modernité, dans chaque pièce que je crée, je fais en sorte de faire ressortir L’ÉLÉGANCE,
-            LA RICHESSE et LA FORCE brute de cette matière façonnée par la terre avant nous,
-            aujourd’hui bien trop souvent mise de côté.
-        </p>
-
-        <p>
-            Je récupère donc des chutes de pierre de taille de dimensions variées
-            que je transforme selon mon imagination et mon savoir-faire,
-            pour mon plus grand plaisir… et le vôtre.
-        </p>
-    </main>
-
-    <!-- ESPACE VENTE -->
-    <section class="section">
-        <h2>Pièces disponibles à la vente</h2>
-
-        <div class="vente">
-            <div class="carte">
-                <img src="vente1.jpg" alt="Pierre sculptée">
-                <p>Pièce unique en Tuffeau</p>
-            </div>
-
-            <div class="carte">
-                <img src="vente2.jpg" alt="Pierre sculptée">
-                <p>Création artisanale</p>
-            </div>
+    <div class="vente">
+        <div class="carte">
+            <img src="vente1.jpg" onclick="openGallery(['vente1.jpg','vente1b.jpg','vente1c.jpg'])">
+            <p>Pièce unique en Tuffeau</p>
         </div>
-    </section>
 
-    <!-- GALERIE -->
-    <section class="section">
-        <h2>Galerie</h2>
-
-        <div class="galerie">
-            <img src="galerie1.jpg" alt="Sculpture">
-            <img src="galerie2.jpg" alt="Sculpture">
-            <img src="galerie3.jpg" alt="Détail pierre">
-            <img src="galerie4.jpg" alt="Détail pierre">
-            <img src="galerie5.jpg" alt="Détail pierre">
-            <img src="galerie6.jpg" alt="Détail pierre">
-            <img src="galerie7.jpg" alt="Détail pierre">
-            <img src="galerie8.jpg" alt="Détail pierre">
-            <img src="galerie9.jpg" alt="Détail pierre">
-            <img src="galerie10.jpg" alt="Détail pierre">
+        <div class="carte">
+            <img src="vente2.jpg" onclick="openGallery(['vente2.jpg','vente2b.jpg','vente2c.jpg'])">
+            <p>Création artisanale</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CONTACT -->
-    <section class="section">
-        <h2>Contact & commandes</h2>
+<section class="section">
+    <h2>Galerie</h2>
 
-        <form>
-            <input type="text" placeholder="Nom">
-            <input type="email" placeholder="Email">
-            <textarea rows="5" placeholder="Votre message"></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
+    <div class="galerie">
+        <img src="galerie1.jpg" onclick="openGallery(['galerie1.jpg'])">
+        <img src="galerie2.jpg" onclick="openGallery(['galerie2.jpg'])">
+        <img src="galerie3.jpg" onclick="openGallery(['galerie3.jpg'])">
+        <img src="galerie4.jpg" onclick="openGallery(['galerie4.jpg'])">
+        <img src="galerie5.jpg" onclick="openGallery(['galerie5.jpg'])">
+        <img src="galerie6.jpg" onclick="openGallery(['galerie6.jpg'])">
+        <img src="galerie7.jpg" onclick="openGallery(['galerie7.jpg'])">
+        <img src="galerie8.jpg" onclick="openGallery(['galerie8.jpg'])">
+        <img src="galerie9.jpg" onclick="openGallery(['galerie9.jpg'])">
+        <img src="galerie10.jpg" onclick="openGallery(['galerie10.jpg'])">
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 – Artisanat & Sculpture sur pierre
-    </footer>
+<section class="section">
+    <h2>Contact & commandes</h2>
+
+    <form>
+        <input type="text" placeholder="Nom">
+        <input type="email" placeholder="Email">
+        <textarea rows="5" placeholder="Votre message"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 – Artisanat & Sculpture sur pierre
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeGallery()">×</span>
+    <button class="nav prev" onclick="changePhoto(-1)">❮</button>
+    <img id="lightbox-img">
+    <button class="nav next" onclick="changePhoto(1)">❯</button>
+</div>
+
+<script>
+let photos = [];
+let index = 0;
+
+function openGallery(list) {
+    photos = list;
+    index = 0;
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = photos[index];
+}
+
+function closeGallery() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changePhoto(direction) {
+    index = (index + direction + photos.length) % photos.length;
+    document.getElementById("lightbox-img").src = photos[index];
+}
+</script>
 
 </body>
-    </html>
+            </html>
